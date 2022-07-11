@@ -60,6 +60,16 @@
           <span class="error_next_box"></span>
         </div>
 
+        <!--nickname-->
+        <div>
+          <h3><label for="Join">닉네임</label></h3>
+
+          <span class="box">
+              <input type="text" id="nickname" class="int" maxlength=16>
+          </span>
+          <span class="error_next_box"></span>
+        </div>
+
         <!--BIRTH_YY-->
         <div>
           <h3><label for="Join">생년월일</label></h3>

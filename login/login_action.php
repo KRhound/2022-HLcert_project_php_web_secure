@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("127.0.0.1", "root", "3733990", "user_db") or die("connect failed");
-$conn->set_charset("utf8");
+include("../connect_db.php");
 
 $id = $_POST['id'];
 $pw = $_POST['password'];
@@ -11,7 +10,7 @@ echo $_POST['id'];
 echo $_POST['password'];
 
 $sql = sprintf("select * from myguests where id='%s';", addslashes($id));
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connect, $sql);
 
 if (mysqli_num_rows($result) == 1) {
   $row = mysqli_fetch_assoc($result);

@@ -5,6 +5,8 @@ var pw2 = document.querySelector("#pswd2");
 
 var user = document.querySelector("#name");
 
+var nickname = document.querySelector("#nickname");
+
 var yy = document.querySelector("#yy");
 var mm = document.querySelector("#mm");
 var dd = document.querySelector("#dd");
@@ -23,6 +25,7 @@ id.addEventListener("blur", checkId);
 pw1.addEventListener("blur", checkPw);
 pw2.addEventListener("blur", comparePw);
 user.addEventListener("blur", checkName);
+nickname.addEventListener("blur", checkNickName);
 yy.addEventListener("blur", checkBirth);
 mm.addEventListener("blur", checkBirth);
 dd.addEventListener("blur", checkBirth);
@@ -31,10 +34,10 @@ email.addEventListener("blur", checkEmail);
 mobile.addEventListener("blur", checkMobile);
 
 var error_count = [];
-for (var i = 0; i < 8; i++) {
+for (var i = 0; i < 9; i++) {
   error_count[i] = 1;
 }
-error_count[6] = 0;
+error_count[7] = 0;
 
 //id
 function checkId() {
@@ -136,6 +139,29 @@ var namePattern = /[a-zA-Z가-힣]/;
   }
 }
 
+//nickname
+function checkNickName() {
+var nicknamePattern = /[a-zA-Z가-힣]/;
+
+  if (user.value == "") {
+    error[4].innerHTML = "필수 정보입니다.";
+    error[4].style.color = "red";
+    error[4].style.display = "block";
+    error_count[4] = 1;
+  }
+  else if (!nicknamePattern.test(user.value)) {
+    error[4].innerHTML = "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)";
+    error[4].style.color = "red";
+    error[4].style.display = "block";
+    error_count[4] = 1;
+  }
+  else {
+    error[4].innerHTML = "올바른 이름입니다.";
+    error[4].style.color = "#08A600";
+    error[4].style.display = "block";
+    error_count[4] = 0;
+  }
+}
 
 
 //생년월일
@@ -144,35 +170,19 @@ function checkBirth() {
   var datePattern = /\d{1,2}/;
 
   if (yy.value == "" || !yearPattern.test(yy.value)) {
-    error[4].innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
-    error[4].style.color = "red";
-    error[4].style.display = "block";
-    error_count[4] = 1;
-  }
-  else if (mm.value == "월") {
-    error[4].innerHTML = "태어난 월을 선택하세요.";
-    error[4].style.color = "red";
-    error[4].style.display = "block";
-    error_count[4] = 1;
-  }
-  else if (yy.value == "" || !datePattern.test(dd.value) || dd.value > 31 || dd.value < 1) {
-    error[4].innerHTML = "태어난 일(날짜) 2자리를 정확하게 입력하세요.";
-    error_count[4] = 1;
-  }
-  else {
-    error[4].innerHTML = "";
-    error_count[4] = 0;
-  }
-}
-
-
-
-//gender
-function checkGender() {
-  if (gender.value == "성별" || gender.value == "") {
-    error[5].innerHTML = "필수 정보입니다.";
+    error[5].innerHTML = "태어난 년도 4자리를 정확하게 입력하세요.";
     error[5].style.color = "red";
     error[5].style.display = "block";
+    error_count[5] = 1;
+  }
+  else if (mm.value == "월") {
+    error[5].innerHTML = "태어난 월을 선택하세요.";
+    error[5].style.color = "red";
+    error[5].style.display = "block";
+    error_count[5] = 1;
+  }
+  else if (yy.value == "" || !datePattern.test(dd.value) || dd.value > 31 || dd.value < 1) {
+    error[5].innerHTML = "태어난 일(날짜) 2자리를 정확하게 입력하세요.";
     error_count[5] = 1;
   }
   else {
@@ -183,16 +193,10 @@ function checkGender() {
 
 
 
-//email
-function checkEmail() {
-  var emailPattern = /([a-z0-9]{2,})@([a-z0-9-]{2,})\.([a-z0-9]{2,})/;
-
-  if (email.value == "") {
-    error[6].innerHTML = "";
-    error_count[6] = 0;
-  }
-  else if (!emailPattern.test(email.value)) {
-    error[6].innerHTML = "email 형식을 다시 확인하세요.";
+//gender
+function checkGender() {
+  if (gender.value == "성별" || gender.value == "") {
+    error[6].innerHTML = "필수 정보입니다.";
     error[6].style.color = "red";
     error[6].style.display = "block";
     error_count[6] = 1;
@@ -205,25 +209,47 @@ function checkEmail() {
 
 
 
+//email
+function checkEmail() {
+  var emailPattern = /([a-z0-9]{2,})@([a-z0-9-]{2,})\.([a-z0-9]{2,})/;
+
+  if (email.value == "") {
+    error[7].innerHTML = "";
+    error_count[7] = 0;
+  }
+  else if (!emailPattern.test(email.value)) {
+    error[7].innerHTML = "email 형식을 다시 확인하세요.";
+    error[7].style.color = "red";
+    error[7].style.display = "block";
+    error_count[7] = 1;
+  }
+  else {
+    error[7].innerHTML = "";
+    error_count[7] = 0;
+  }
+}
+
+
+
 //전화번호
 function checkMobile() {
    var mobilePattern = /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/;
 
    if (mobile.value == "") {
-     error[7].innerHTML = "필수 정보입니다.";
-     error[7].style.color = "red";
-     error[7].style.display = "block";
-     error_count[7] = 1;
+     error[8].innerHTML = "필수 정보입니다.";
+     error[8].style.color = "red";
+     error[8].style.display = "block";
+     error_count[8] = 1;
    }
    else if (!mobilePattern.test(mobile.value)) {
-     error[7].innerHTML = "전화번호를 다시 확인하세요.";
-     error[7].style.color = "red";
-     error[7].style.display = "block";
-     error_count[7] = 1;
+     error[8].innerHTML = "전화번호를 다시 확인하세요.";
+     error[8].style.color = "red";
+     error[8].style.display = "block";
+     error_count[8] = 1;
    }
    else {
-     error[7].innerHTML = "";
-     error_count[7] = 0;
+     error[8].innerHTML = "";
+     error_count[8] = 0;
    }
 }
 
@@ -265,15 +291,15 @@ function sendPost(url, params) {
 function loginMsgPage() {
   if (!checkError()) {
     var birth = yy.value + "-" + mm.value + "-" + dd.value;
-    sendPost('dataRecording.php',
+    sendPost('./join_action.php',
     {id: id.value, pw: pw1.value, name: user.value,
-    birth: birth, gender: gender.value,
+    nickname: nickname.value, birth: birth, gender: gender.value,
     email: email.value, mobile: mobile.value} );
     window.location.href = '../login/login.php';
   }
   else {
-    error[8].innerHTML = "실패 하였습니다.";
-    error[8].style.color = "red";
-    error[8].style.display = "block";
+    error[9].innerHTML = "실패 하였습니다.";
+    error[9].style.color = "red";
+    error[9].style.display = "block";
   }
 }

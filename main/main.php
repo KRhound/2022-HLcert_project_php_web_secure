@@ -97,10 +97,10 @@
       <div class="content">
         <!--로고-->
         <div class="btn_area">
-          <button type="button" id="btn1" onclick="refreshPage()">
+          <button type="button" id="btn1" onclick="location.reload()">
             <span>로비</span>
           </button>
-          <button type="button" id="btn2" onclick="boardUpPage()">
+          <button type="button" id="btn2" onclick="location.href='../notice_board/board.php'">
             <span>게시판</span>
           </button>
 
@@ -128,6 +128,5 @@
         </div>
 
     </div>
-    <script src="main.js"></script>
   </body>
 </html>
