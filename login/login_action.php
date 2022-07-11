@@ -10,7 +10,7 @@ $pw = $_POST['password'];
 echo $_POST['id'];
 echo $_POST['password'];
 
-$sql = "select * from myguests where id='$id'";
+$sql = sprintf("select * from myguests where id='%s';", addslashes($id));
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) == 1) {
