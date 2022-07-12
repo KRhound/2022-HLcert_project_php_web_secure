@@ -12,12 +12,6 @@ function dataRecording() {
 
   include("../connect_db.php");
 
-  if (mysqli_connect_errno()) {
-    $error_msg = "Connect failed: " + mysqli_connect_error() + "\n";
-    error_log ($error_msg, 3, "C:\Bitnami\wampstack-8.1.7-0\apache2\logs\error.log");
-    exit();
-  }
-
   $sql = "INSERT INTO myguests (id, pw, name, nickname, birth, gender, email, phone)
   VALUES ('$arr[0]', '$arr[1]', '$arr[2]', '$arr[3]', '$arr[4]', '$arr[5]', '$arr[6]', '$arr[7]')";
 
