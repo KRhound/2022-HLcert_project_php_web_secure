@@ -119,7 +119,7 @@
           <form method="POST" action="login_action.php">
             <h3><label for="Login">아이디</label></h3>
             <p><span class="box int_id">
-                <input type="password" name="id" id="id" class="int" maxlength=20>
+                <input type="text" name="id" id="id" class="int" maxlength=20>
               </span></p>
               <span class="error_next_box"></span>
             </div>
