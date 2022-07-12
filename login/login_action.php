@@ -4,10 +4,6 @@ session_start();
 include("../connect_db.php");
 
 $id = $_POST['id'];
-$pw = $_POST['password'];
-
-echo $_POST['id'];
-echo $_POST['password'];
 
 $sql = sprintf("select * from myguests where id='%s';", addslashes($id));
 $result = mysqli_query($connect, $sql);
@@ -15,7 +11,7 @@ $result = mysqli_query($connect, $sql);
 if (mysqli_num_rows($result) == 1) {
   $row = mysqli_fetch_assoc($result);
 
-  if ($row['pw'] == $pw) {
+  if (password_verify($_POST['password'], $row['pw'])) {
     $_SESSION['userid'] = $id;
     $_SESSION['pw'] = $pw;
     if (isset($_SESSION['userid'])) {

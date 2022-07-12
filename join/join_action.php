@@ -2,7 +2,7 @@
 function dataRecording() {
   $arr = [];
   $arr[0] = $_POST['id'];
-  $arr[1] = $_POST['pw'];
+  $arr[1] = password_hash($_POST['pw'], PASSWORD_DEFAULT);
   $arr[2] = $_POST['name'];
   $arr[3] = $_POST['nickname'];
   $arr[4] = $_POST['birth'];
