@@ -115,9 +115,11 @@ function comparePw() {
 
 
 
+var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/;
+
 //name
 function checkName() {
-var namePattern = /[a-zA-Z가-힣]/;
+var namePattern = /[가-힣a-zA-Z]/;
 
   if (user.value == "") {
     error[3].innerHTML = "필수 정보입니다.";
@@ -125,7 +127,7 @@ var namePattern = /[a-zA-Z가-힣]/;
     error[3].style.display = "block";
     error_count[3] = 1;
   }
-  else if (!namePattern.test(user.value)) {
+  else if (!namePattern.test(user.value) || user.value.indexOf(" ") > -1 || regExp.test(user.value)) {
     error[3].innerHTML = "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)";
     error[3].style.color = "red";
     error[3].style.display = "block";
@@ -141,15 +143,15 @@ var namePattern = /[a-zA-Z가-힣]/;
 
 //nickname
 function checkNickName() {
-var nicknamePattern = /[a-zA-Z가-힣]/;
+var nicknamePattern = /[가-힣a-zA-Z]/;
 
-  if (user.value == "") {
+  if (nickname.value == "") {
     error[4].innerHTML = "필수 정보입니다.";
     error[4].style.color = "red";
     error[4].style.display = "block";
     error_count[4] = 1;
   }
-  else if (!nicknamePattern.test(user.value)) {
+  else if (!nicknamePattern.test(nickname.value) || nickname.value.indexOf(" ") > -1 || regExp.test(nickname.value)) {
     error[4].innerHTML = "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)";
     error[4].style.color = "red";
     error[4].style.display = "block";

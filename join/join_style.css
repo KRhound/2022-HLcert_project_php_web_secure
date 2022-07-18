@@ -28,7 +28,7 @@ width: 460px;
 }
 
 #bir_wrap{
-display table;
+display: table;
 width: 100%
 }
 
