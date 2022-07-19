@@ -116,7 +116,7 @@
       <!--id-->
       <div id="content">
         <div>
-          <form method="POST" action="login_action.php">
+          <form method="POST" action="login_action">
             <h3><label for="Login">아이디</label></h3>
             <p><span class="box int_id">
                 <input type="text" name="id" id="id" class="int" maxlength=20>
@@ -140,7 +140,7 @@
               <span class="error_next_box"></span>
             </div>
             <div class="btn_area">
-              <button type="button" id="btnJoin" onclick="location.href='../join/join.php'">회원가입</button>
+              <button type="button" id="btnJoin" onclick="location.href='../join/join'">회원가입</button>
           </div>
         </div>
       </form>

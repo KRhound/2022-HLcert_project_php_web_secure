@@ -100,7 +100,7 @@
           <button type="button" id="btn1" onclick="location.reload()">
             <span>로비</span>
           </button>
-          <button type="button" id="btn2" onclick="location.href='../notice_board/board.php'">
+          <button type="button" id="btn2" onclick="location.href='../notice_board/board'">
             <span>게시판</span>
           </button>
 
@@ -115,12 +115,12 @@
 
             if (isset($_SESSION['userid'])) {
               ?><b><?php echo $_SESSION['userid']; ?></b>님 반갑습니다.
-              <button type="button" id="btn3" onclick="location.href='../login/logout_action.php'">logout</button>
+              <button type="button" id="btn3" onclick="location.href='../login/logout_action'">logout</button>
               <br />
               <?php
             } else {
               ?>
-            <button type="button" id="btn4" onclick="location.href='../login/login.php'">login</button>
+            <button type="button" id="btn4" onclick="location.href='../login/login'">login</button>
             <br />
           <?php
           }

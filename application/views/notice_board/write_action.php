@@ -9,7 +9,7 @@ $title = $_POST['title'];
 $content = $_POST['content'];
 $date = date('Y-m-d H:i:s');
 
-$URL = './board.php';
+$URL = './board';
 
 
 $query = "INSERT INTO board (number, title, content, date, hit, id, password)

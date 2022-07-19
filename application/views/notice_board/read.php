@@ -127,9 +127,9 @@
     </table>
 
     <div class="btn">
-        <button class="btn1" onclick="location.href='./board.php'">목록</button>&nbsp;&nbsp;
-        <button class="btn1" onclick="location.href='./modify.php?number=<?= $number ?>&id=<?= $_SESSION['userid'] ?>'">수정</button>&nbsp;&nbsp;
-        <button class="btn1" onclick="location.href='./delete_action.php?number=<?= $number ?>&id=<?= $_SESSION['userid'] ?>'">삭제</button>
+        <button class="btn1" onclick="location.href='./board'">목록</button>&nbsp;&nbsp;
+        <button class="btn1" onclick="location.href='./modify?number=<?= $number ?>&id=<?= $_SESSION['userid'] ?>'">수정</button>&nbsp;&nbsp;
+        <button class="btn1" onclick="location.href='./delete_action?number=<?= $number ?>&id=<?= $_SESSION['userid'] ?>'">삭제</button>
     </div>
 </body>
 

@@ -19,7 +19,7 @@ if ($result && $rows['password'] == $password) {
 ?>
     <script>
         alert("수정되었습니다.");
-        location.replace("./read.php?number=<?= $number ?>");
+        location.replace("./read?number=<?= $number ?>");
     </script>
 <?php
   }

@@ -44,7 +44,7 @@
     <?php
     }
     ?>
-    <form method="post" action="write_action.php">
+    <form method="post" action="write_action">
         <!-- method : POST!!! (GET X) -->
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>

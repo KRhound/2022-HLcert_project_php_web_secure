@@ -17,7 +17,7 @@ if (mysqli_num_rows($result) == 1) {
     if (isset($_SESSION['userid'])) {
 ?>
       <script>
-        location.replace("../main/main.php");
+        location.replace("../main/main");
       </script>
 <?php
     } else {

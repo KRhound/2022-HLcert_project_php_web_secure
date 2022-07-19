@@ -46,7 +46,7 @@
 
   session_start();
 
-  $URL = "./board.php";
+  $URL = "./board";
 
   if (!isset($_SESSION['userid'])) {
     ?>
@@ -58,7 +58,7 @@
       }
       else if ($_SESSION['userid'] == $userid || ($_SESSION['userid'] == "admin" && $_SESSION['pw'] == "20000819")) {
     ?>
-    <form method="POST" action="modify_action.php">
+    <form method="POST" action="modify_action">
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>
                 <td style="height:40; float:center; background-color:#08a600">
