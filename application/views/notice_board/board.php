@@ -14,7 +14,7 @@
     text-align: right;
     margin: auto;
     margin-top: 50px;"><?php echo $_SESSION['userid']; ?></b>님 환영합니다.
-        <button onclick="location.href='../login/logout_action.php'" style="height: 50px;
+        <button onclick="location.href='../login/logout_action'" style="height: 50px;
         width: 80px;
         height: 30px;
         float:right;
@@ -27,7 +27,7 @@
     <?php
     } else {
     ?>
-        <button onclick="location.href='../login/login.php'" style="height: 50px;
+        <button onclick="location.href='../login/login'" style="height: 50px;
         width: 80px;
         height: 30px;
         float:right;
@@ -42,7 +42,7 @@
     ?>
 
 
-    <button onclick="location.href='../main/main.php'" style="height: 50px;
+    <button onclick="location.href='../main/main'" style="height: 50px;
         width: 80px;
         height: 30px;
         float:left;
@@ -93,7 +93,7 @@
             <tr>
               <td width="100"><?=$board['number'];?></td>
               <td width="500">
-                <a href="./read.php?number=<?php echo $board['number'] ?>">
+                <a href="./read?number=<?php echo $board['number'] ?>">
                             <?php echo $board['title'] ?>
               </td>
               <td width="120"><?=$board['id'];?></td>
@@ -119,7 +119,7 @@
         text-align: center;
         background-color: white;
         border: 2px solid black;
-        border-radius: 10px;" onclick="location.href='./write.php'">
+        border-radius: 10px;" onclick="location.href='./write'">
           <span>글작성</span>
         </button>
       <?php } ?>

@@ -10,7 +10,7 @@ $userid = $rows['id'];
 
 session_start();
 
-$URL = "./board.php";
+$URL = "./board";
 ?>
 
 <?php

@@ -293,11 +293,11 @@ function sendPost(url, params) {
 function loginMsgPage() {
   if (!checkError()) {
     var birth = yy.value + "-" + mm.value + "-" + dd.value;
-    sendPost('./join_action.php',
+    sendPost('./join_action',
     {id: id.value, pw: pw1.value, name: user.value,
     nickname: nickname.value, birth: birth, gender: gender.value,
     email: email.value, mobile: mobile.value} );
-    window.location.href = '../login/login.php';
+    window.location.href = '../login/login';
   }
   else {
     error[9].innerHTML = "실패 하였습니다.";
