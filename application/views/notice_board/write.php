@@ -32,33 +32,20 @@
 
 <body>
   <?php
-  include("../connect_db.php");
-  
-  $number = $_GET['number'];
-  $query = "select title, content, date, id, password from board where number = $number";
-  $result = $connect->query($query);
-  $rows = mysqli_fetch_assoc($result);
-
-  $title = $rows['title'];
-  $content = $rows['content'];
-  $userid = $rows['id'];
-  $password = $rows['password'];
-
-  session_start();
-
-  $URL = "./board.php";
-
-  if (!isset($_SESSION['userid'])) {
+    session_start();
+    $URL = "../login/login.php";
+    if (!isset($_SESSION['userid'])) {
     ?>
-    <script>
-        alert("권한이 없습니다.");
-        location.replace("<?php echo $URL ?>");
-    </script>
+
+        <script>
+            alert("로그인이 필요합니다.");
+            location.replace("<?php echo $URL ?>");
+        </script>
     <?php
-      }
-      else if ($_SESSION['userid'] == $userid || ($_SESSION['userid'] == "admin" && $_SESSION['pw'] == "20000819")) {
+    }
     ?>
-    <form method="POST" action="modify_action.php">
+    <form method="post" action="write_action.php">
+        <!-- method : POST!!! (GET X) -->
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>
                 <td style="height:40; float:center; background-color:#08a600">
@@ -70,40 +57,32 @@
                     <table class="table2">
                         <tr>
                             <td>작성자</td>
-                            <td><input type="text" name="name" size=30 value="<?= $_SESSION['userid'] ?>"></td>
+                            <td><span name="name" size=30><?php echo $_SESSION['userid']; ?></span></td>
                         </tr>
 
                         <tr>
                             <td>제목</td>
-                            <td><input type="text" name="title" size=70 value="<?= $title ?>"></td>
+                            <td><input type="text" name="title" size=70></td>
                         </tr>
 
                         <tr>
                             <td>내용</td>
-                            <td><textarea name="content" cols=75 rows=15><?= $content ?></textarea></td>
+                            <td><textarea name="content" cols=75 rows=15></textarea></td>
                         </tr>
 
                         <tr>
                             <td>비밀번호</td>
-                            <td><input type="password" name="pw" size=15 maxlength=15 value="<?= $password ?>"></td>
+                            <td><input type="password" name="pw" size=15 maxlength=15></td>
                         </tr>
                     </table>
 
                     <center>
-                      <input type="hidden" name="number" value="<?= $number ?>">
-                      <input style="height:26px; width:47px; font-size:16px;" type="submit" value="작성">
+                        <input style="height:26px; width:47px; font-size:16px;" type="submit" value="작성">
                     </center>
                 </td>
             </tr>
         </table>
-      </form>
-    <?php  } else {
-    ?> <script>
-            alert("권한이 없습니다.");
-            location.replace("<?php echo $URL ?>");
-        </script>
-    <?php   }
-    ?>
+    </form>
 </body>
 
 </html>

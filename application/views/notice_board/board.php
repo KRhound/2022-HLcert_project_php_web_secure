@@ -2,7 +2,7 @@
 <html>
   <head>
     <?php
-    include("../connect_db.php");
+    include("../../../connect_db.php");
     $query = "select * from board order by number desc";
     $result = mysqli_query($connect, $query);
 

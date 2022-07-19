@@ -96,7 +96,7 @@
 
 <body>
     <?php
-    include("../connect_db.php");
+    include("../../../connect_db.php");
     
     $number = $_GET['number'];
     session_start();

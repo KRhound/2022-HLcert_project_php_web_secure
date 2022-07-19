@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include("../connect_db.php");
+include("../../../connect_db.php");
 
 $id = $_POST['id'];
 

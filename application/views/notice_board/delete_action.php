@@ -1,5 +1,5 @@
 <?php
-include("../connect_db.php");
+include("../../../connect_db.php");
 $number = $_GET['number'];
 
 $query = "select id from board where number = $number";
