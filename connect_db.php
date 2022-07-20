@@ -8,7 +8,7 @@
   [Database] 
   host=127.0.0.1
   username=root
-  passwd=3733990
+  passwd=10Pq8q8y8HpX
   dbname=user_db
 */
 
