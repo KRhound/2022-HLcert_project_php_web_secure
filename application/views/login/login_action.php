@@ -9,11 +9,11 @@ $sql = sprintf("select * from myguests where id='%s';", addslashes($id));
 $result = mysqli_query($connect, $sql);
 
 if (mysqli_num_rows($result) == 1) {
-  $row = mysqli_fetch_assoc($result);
+  $rows = mysqli_fetch_assoc($result);
 
-  if (password_verify($_POST['password'], $row['pw'])) {
+  if (password_verify($_POST['password'], $rows['pw'])) {
     $_SESSION['userid'] = $id;
-    $_SESSION['pw'] = $pw;
+    $_SESSION['nickname'] = $rows['nickname'];
     if (isset($_SESSION['userid'])) {
 ?>
       <script>
