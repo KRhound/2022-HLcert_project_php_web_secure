@@ -100,9 +100,11 @@
     
     $number = $_GET['number'];
     session_start();
-    $query = "select title, content, date, hit, id from board where number = $number";
-    $result = $connect->query($query);
-    $rows = mysqli_fetch_assoc($result);
+
+    $stmt = $connect->prepare("select title, content, date, hit, id from board where number = $number");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $rows = $result->fetch_assoc();
 
     $hit = "update board set hit = hit + 1 where number = $number";
     $connect->query($hit);

@@ -31,19 +31,20 @@
 </head>
 
 <body>
-  <?php
+ <?php
   include("../../../connect_db.php");
   
-  $number = $connect -> real_escape_string($_GET['number']);
+  $number = $_GET['number'];
 
-  $query = "select title, content, date, id, password from board where number = $number";
-  $result = $connect->query($query);
-  $rows = mysqli_fetch_assoc($result);
+  $stmt = $connect->prepare("select title, content, date, id, password from board where number = $number");
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $rows = $result->fetch_assoc();
 
   $title = $rows['title'];
   $content = $rows['content'];
   $userid = $rows['id'];
-  $password = $rows['password'];
+  $password = '';
 
   session_start();
 

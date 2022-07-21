@@ -8,9 +8,10 @@ $password = $_POST['pw'];
 
 $date = date('Y-m-d H:i:s');
 
-$query = "select title, content, date, id, password from board where number = $number";
-$result = $connect->query($query);
-$rows = mysqli_fetch_assoc($result);
+  $stmt = $connect->prepare("select title, content, date, id, password from board where number = $number");
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $rows = $result->fetch_assoc();
 
 if ($result && $rows['password'] == $password) {
   $query = "update board set title='$title', content='$content', date='$date' where number=$number";
