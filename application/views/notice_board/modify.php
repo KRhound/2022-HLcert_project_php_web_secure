@@ -34,7 +34,8 @@
   <?php
   include("../../../connect_db.php");
   
-  $number = $_GET['number'];
+  $number = $connect -> real_escape_string($_GET['number']);
+
   $query = "select title, content, date, id, password from board where number = $number";
   $result = $connect->query($query);
   $rows = mysqli_fetch_assoc($result);
