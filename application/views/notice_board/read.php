@@ -112,7 +112,8 @@
 
     <table class="table" align=center>
         <tr>
-            <td colspan="4" class="title"><?php echo $rows['title'] ?></td>
+            <td colspan="4" class="title"><?php $str = sprintf("%s", addslashes($rows['title']));
+                    echo $str; ?></td>
         </tr>
         <tr>
             <td class="id">작성자</td>
@@ -124,7 +125,8 @@
 
         <tr>
             <td colspan="4" class="content" valign="top">
-                <?php echo $rows['content'] ?></td>
+                <?php $str = sprintf("%s", addslashes($rows['content']));
+                    echo $str; ?></td>
         </tr>
     </table>
 
