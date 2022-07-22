@@ -1,6 +1,10 @@
 <?php
 include("../../../connect_db.php");
 
+session_start();
+
+if(isset($_SESSION['tok']) && $_POST['tok'] == $_SESSION['tok']){
+
 $number = $_POST['number'];
 $title = $_POST['title'];
 $content = $_POST['content'];
@@ -48,5 +52,12 @@ else {
     history.back();
   </script>
 <?php
-}
+}} else {
+  ?>
+    <script>
+      alert("비 정상적인 접근입니다.");
+      history.back();
+    </script>
+  <?php
+  } 
 ?>

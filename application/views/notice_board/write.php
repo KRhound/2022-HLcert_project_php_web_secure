@@ -33,6 +33,7 @@
 <body>
   <?php
     session_start();
+
     $URL = "../login/login.php";
     if (!isset($_SESSION['userid'])) {
     ?>
@@ -42,12 +43,16 @@
             location.replace("<?php echo $URL ?>");
         </script>
     <?php
-    }
+    } else{
+        $tok = md5(uniqid(rand(), true));
+        $_SESSION['tok'] = $tok;
     ?>
     <form method="post" action="write_action">
         <!-- method : POST!!! (GET X) -->
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>
+            <input type="hidden" name="tok" value="<?php echo $tok; ?>">
+            <!-- CSRF Token -->
                 <td style="height:40; float:center; background-color:#08a600">
                     <p style="font-size:25px; text-align:center; color:white; margin-top:15px; margin-bottom:15px"><b>게시글 작성하기</b></p>
                 </td>
@@ -82,6 +87,7 @@
                 </td>
             </tr>
         </table>
+        <?php } ?>
     </form>
 </body>
 

@@ -59,10 +59,14 @@
     <?php
       }
       else if ($_SESSION['userid'] == $userid || ($_SESSION['userid'] == "admin" && $_SESSION['pw'] == "20000819")) {
+            $tok = md5(uniqid(rand(), true));
+            $_SESSION['tok'] = $tok;
     ?>
     <form method="POST" action="modify_action">
         <table style="padding-top:50px" align=center width=auto border=0 cellpadding=2>
             <tr>
+            <input type="hidden" name="tok" value="<?php echo $tok; ?>">
+            <!-- CSRF Token -->
                 <td style="height:40; float:center; background-color:#08a600">
                     <p style="font-size:25px; text-align:center; color:white; margin-top:15px; margin-bottom:15px"><b>게시글 작성하기</b></p>
                 </td>

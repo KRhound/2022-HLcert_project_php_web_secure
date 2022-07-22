@@ -3,6 +3,8 @@ include("../../../connect_db.php");
 
 session_start();
 
+if(isset($_SESSION['tok']) && $_POST['tok'] == $_SESSION['tok']){
+
 $id = $_SESSION['userid'];
 $pw = $_POST['pw'];
 $title = $_POST['title'];
@@ -32,4 +34,12 @@ if ($result) {
 }
 
 mysqli_close($connect);
+} 
+else {
+  ?> <script>
+          alert("비 정상적인 접근입니다.");
+          history.back();
+      </script>
+  <?php
+}
 ?>
