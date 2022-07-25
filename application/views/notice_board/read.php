@@ -112,7 +112,7 @@
 
     <table class="table" align=center>
         <tr>
-            <td colspan="4" class="title"><?php $str = sprintf("%s", addslashes($rows['title']));
+            <td colspan="4" class="title"><?php $str = sprintf("%s", htmlentities($rows['title']));
                     echo $str; ?></td>
         </tr>
         <tr>
@@ -125,7 +125,7 @@
 
         <tr>
             <td colspan="4" class="content" valign="top">
-                <?php $str = sprintf("%s", addslashes($rows['content']));
+                <?php $str = sprintf("%s", htmlentities($rows['content']));
                     echo $str; ?></td>
         </tr>
     </table>
