@@ -94,7 +94,7 @@
               <td width="100"><?=$board['number'];?></td>
               <td width="500">
                 <a href="./read?number=<?php echo $board['number'] ?>">
-                            <?php echo $board['title'] ?>
+                            <?php echo htmlentities($board['title']) ?>
               </td>
               <td width="120"><?=$board['id'];?></td>
               <td width="160"><?=$board['date'];?></td>
