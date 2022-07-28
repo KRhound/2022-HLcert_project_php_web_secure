@@ -58,7 +58,7 @@
     </script>
     <?php
       }
-      else if ($_SESSION['userid'] == $userid || ($_SESSION['userid'] == "admin" && $_SESSION['pw'] == "20000819")) {
+      else if ($_SESSION['userid'] == $userid || ($_SESSION['userid'] == "admin")) {
             $tok = md5(uniqid(rand(), true));
             $_SESSION['tok'] = $tok;
     ?>
