@@ -5,7 +5,7 @@ include("../../../connect_db.php");
 
 $id = $_POST['id'];
 
-$sql = sprintf("select * from myguests where id='%s';", addslashes($id));
+$sql = sprintf("select * from myguests where id='%s';", htmlentities($id));
 $result = mysqli_query($connect, $sql);
 
 if (mysqli_num_rows($result) == 1) {
