@@ -40,7 +40,7 @@ if (mysqli_num_rows($result) == 1) {
   <?php
   }} else {
     ?> <script>
-        //alert("접근불가");
+        alert("접근불가");
         history.back();
     </script>
 <?php
