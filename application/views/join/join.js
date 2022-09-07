@@ -41,7 +41,7 @@ error_count[7] = 0;
 
 //id
 function checkId() {
-  var idPattern = /[a-zA-Z0-9_-]{8,20}/;
+  var idPattern = /[a-zA-Z0-9_-]{5,20}/;
 
   if(id.value == "") {
     error[0].innerHTML = "필수 정보입니다.";

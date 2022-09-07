@@ -8,6 +8,8 @@ $id = $_POST['id'];
 $sql = sprintf("select * from myguests where id='%s';", htmlentities($id));
 $result = mysqli_query($connect, $sql);
 
+if(($id == "admin" && ($_SERVER['REMOTE_ADDR']=="117.16.11.247" 
+                  || $_SERVER['REMOTE_ADDR']=="192.168.0.204")) || $id != "admin"){
 if (mysqli_num_rows($result) == 1) {
   $rows = mysqli_fetch_assoc($result);
   //특정 IP address에서만 관리자 로그인 가능 - 구현 X
@@ -32,9 +34,15 @@ if (mysqli_num_rows($result) == 1) {
     <?php
   }} else {
       ?> <script>
-          alert("접근불가");
+          alert("아이디 또는 비밀번호를 확인해주세요.");
           history.back();
       </script>
   <?php
-  }
+  }} else {
+    ?> <script>
+        //alert("접근불가");
+        history.back();
+    </script>
+<?php
+}
 ?>
